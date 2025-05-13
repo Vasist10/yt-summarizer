@@ -3,10 +3,12 @@ from download_audio import download_audio
 from transcribe import transcribe_audio
 from summarize_hf import summarize_with_huggingface
 from dotenv import load_dotenv
+from app import app
 import os
+load_dotenv()
 
 app = Flask(__name__)
-load_dotenv()
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -34,4 +36,5 @@ def index():
     return render_template("index.html", summary=summary)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  
+    app.run(host="0.0.0.0", port=port)
