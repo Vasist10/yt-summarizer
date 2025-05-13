@@ -1,0 +1,17 @@
+.env
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+venv/
+ENV/
+env/
+
+*.mp3
+*.wav
+transcript.txt
+summary.txt
+audio.mp3.mp3
+
