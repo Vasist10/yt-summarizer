@@ -15,7 +15,7 @@ def summarize_with_huggingface(text, chunk_size=1000, overlap=200):
         "summarization",
         model="facebook/bart-large-cnn",
         tokenizer="facebook/bart-large-cnn",
-        token=hf_token  # ✅ Correct way to use token
+        token=hf_token  
     )
 
     summaries = []
@@ -42,6 +42,6 @@ def summarize_with_huggingface(text, chunk_size=1000, overlap=200):
         final_summary = summarizer(final_summary_input, max_length=300, min_length=100, do_sample=False)[0]['summary_text']
     except Exception as e:
         print(f"⚠️ Final summary failed: {e}")
-        final_summary = final_summary_input  # fallback to concatenated summaries
+        final_summary = final_summary_input  
 
     return final_summary

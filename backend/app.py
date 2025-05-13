@@ -15,13 +15,10 @@ def index():
     if request.method == "POST":
         youtube_url = request.form.get("youtube_url")
         try:
-            # Step 1: Download audio
             download_audio(youtube_url, "audio.mp3")
 
-            # Step 2: Transcribe audio
             transcript = transcribe_audio("audio.mp3.mp3", translate=False)
 
-            # Step 3: Summarize using Hugging Face
             summary = summarize_with_huggingface(transcript)
 
         except Exception as e:

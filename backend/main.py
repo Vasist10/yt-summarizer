@@ -15,21 +15,16 @@ def index():
         youtube_url = request.form.get("youtube_url")
         if youtube_url:
             try:
-                # Step 1: Download audio
                 audio_path = "audio.mp3"
                 download_audio(youtube_url, audio_path)
 
-                # Step 2: Transcribe audio
                 transcript = transcribe_audio(audio_path, translate=False)
 
-                # Optional: Save transcript
                 with open("transcript.txt", "w", encoding="utf-8") as f:
                     f.write(transcript)
 
-                # Step 3: Summarize using Hugging Face
                 summary = summarize_with_huggingface(transcript)
 
-                # Optional: Save summary
                 with open("summary.txt", "w", encoding="utf-8") as f:
                     f.write(summary)
 
