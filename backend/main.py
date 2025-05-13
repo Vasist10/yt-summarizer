@@ -4,6 +4,7 @@ from transcribe import transcribe_audio
 from summarize_hf import summarize_with_huggingface
 from dotenv import load_dotenv
 from app import app
+import uvicorn
 import os
 load_dotenv()
 
@@ -37,4 +38,4 @@ def index():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  
-    app.run(host="0.0.0.0", port=port)
+    uvicorn.run(host="0.0.0.0", port=port)
