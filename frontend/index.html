@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Summarizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">YouTube Video Summarizer</h1>
+            <p class="text-gray-600">Get instant summaries of any YouTube video</p>
+        </header>
+
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-6">
+                <label for="videoUrl" class="block text-gray-700 text-sm font-bold mb-2">YouTube Video URL</label>
+                <div class="flex gap-2">
+                    <input type="text" id="videoUrl" 
+                           class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           placeholder="https://www.youtube.com/watch?v=...">
+                    <button id="summarizeBtn" 
+                            class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Summarize
+                    </button>
+                </div>
+            </div>
+
+            <div id="loadingIndicator" class="hidden">
+                <div class="flex items-center justify-center space-x-2">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                    <span class="text-gray-600">Processing video...</span>
+                </div>
+            </div>
+
+            <div id="results" class="hidden">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-3">Summary</h2>
+                    <div id="summary" class="bg-gray-50 p-4 rounded-lg text-gray-700"></div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-3">Full Transcript</h2>
+                    <div id="transcript" class="bg-gray-50 p-4 rounded-lg text-gray-700 max-h-96 overflow-y-auto"></div>
+                </div>
+            </div>
+
+            <div id="error" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-lg"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
